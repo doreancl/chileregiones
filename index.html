@@ -22,6 +22,9 @@
 
         function selectRegion(region_id) {
             clearSelect($provincias);
+            clearSelect($comunas);
+            $provincias[$provincias.length] = new Option("-- Selecciona una ciudad --", '');
+            $comunas[$comunas.length] = new Option("-- Selecciona una comuna --", '');
             if (!provinciaregion || provinciaregion == '' || provinciaregion < 0) {
                 return false;
             }
@@ -29,8 +32,6 @@
                 return false;
             }
             var provincias = provinciaregion[region_id];
-            $provincias[$provincias.length] = new Option("-- Selecciona una ciudad --", '');
-            $comunas[$comunas.length] = new Option("-- Selecciona una comuna --", '');
             for (var i = 0; i < provincias.length; i++) {
                 if (undefined === provincias[i]) {
                     continue;
@@ -43,6 +44,7 @@
 
         function selectProvincia(provincia_id) {
             clearSelect($comunas);
+            $comunas[$comunas.length] = new Option("-- Selecciona una comuna --", '');
             if (!comunaprovincia || comunaprovincia == '' || comunaprovincia < 0) {
                 return false;
             }
